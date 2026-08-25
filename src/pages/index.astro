@@ -1,0 +1,49 @@
+---
+import Header from '@components/Header.astro';
+import Hero from '@components/Hero.astro';
+import CatalogViewer from '@components/CatalogViewer.astro';
+import BlogRSE from '@components/BlogRSE.astro';
+import Footer from '@components/Footer.astro';
+
+const currentLang = 'es';
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO & Metadata Primaria -->
+    <title>MILOR Comercializadora | Material Eléctrico e Infraestructura en Colombia</title>
+    <meta name="description" content="Suministro de aisladores tipo carrete, brazos galvanizados y material eléctrico bajo normas CFE, NMX y ANSI en Colombia. Atención técnica y distribución directa." />
+    <meta name="keywords" content="MILOR, aisladores porcelana, material eléctrico Colombia, brazos galvanizados, infraestructura eléctrica, aisladores carrete" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-['Inter',sans-serif] antialiased selection:bg-amber-500 selection:text-slate-950">
+    
+    <!-- Header Navegación Principal -->
+    <Header currentLang={currentLang} />
+
+    <main id="top">
+      <!-- Sección Principal Hero -->
+      <Hero currentLang={currentLang} />
+
+      <!-- Visor de Catálogo Interactivo & Fichas Técnicas -->
+      <CatalogViewer currentLang={currentLang} />
+
+      <!-- Sección de Responsabilidad Social Empresarial -->
+      <BlogRSE currentLang={currentLang} />
+    </main>
+
+    <!-- Pie de Página & Contacto Colombia -->
+    <Footer currentLang={currentLang} />
+
+  </body>
+</html>
