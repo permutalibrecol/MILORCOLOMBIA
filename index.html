@@ -1,199 +1,354 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MILOR Comercializadora | Material Eléctrico e Infraestructura de Alta Tensión</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MILOR Colombia | Comercializadora & Constructora Internacional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] }
-        }
-      }
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-blue: #0F2B48;
+      --navy-dark: #0A1C30;
+      --gold: #C29B38;
+      --gold-light: #DFB858;
+      --gray-bg: #F4F6F9;
+      --gray-card: #FFFFFF;
+      --text-dark: #1F2937;
+      --text-muted: #6B7280;
+      --font-main: 'Montserrat', sans-serif;
     }
-  </script>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+    body { background-color: var(--gray-bg); color: var(--text-dark); line-height: 1.6; }
+
+    /* Botón Flotante WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      border-radius: 50px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-icon { width: 34px; height: 34px; }
+
+    /* Header y Navegación */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background-color: var(--navy-blue);
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .logo-container { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
+    .logo-title { font-size: 1.6rem; font-weight: 900; color: #FFFFFF; letter-spacing: 2.5px; }
+    .logo-subtitle { color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+
+    .nav-links a { color: #E5E7EB; text-decoration: none; margin: 0 10px; font-size: 0.85rem; font-weight: 600; transition: color 0.3s; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .selectors { display: flex; gap: 8px; }
+    .dropbtn { background: var(--navy-dark); color: #FFF; border: 1px solid rgba(194,155,56,0.4); padding: 6px 12px; font-weight: 600; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; right: 0; background: var(--navy-dark); border-radius: 4px; min-width: 140px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+    .dropdown-content a { color: #FFF; padding: 10px 14px; text-decoration: none; display: block; font-size: 0.8rem; }
+    .dropdown-content a:hover { background: var(--navy-blue); color: var(--gold); }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    /* Hero Section */
+    .hero { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-blue) 100%); color: #FFF; padding: 100px 5% 90px 5%; text-align: center; }
+    .tag-national { background-color: rgba(194, 155, 56, 0.15); color: var(--gold-light); border: 1px solid var(--gold); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; display: inline-block; margin-bottom: 15px; }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; margin: 15px auto; max-width: 950px; line-height: 1.25; }
+    .hero p { font-size: 1.1rem; color: #D1D5DB; max-width: 750px; margin: 0 auto 35px auto; font-weight: 400; }
+    
+    .cta-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: #000; padding: 14px 32px; font-weight: 800; text-decoration: none; border-radius: 4px; transition: all 0.3s; font-size: 0.9rem; text-transform: uppercase; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-secondary { border: 2px solid #FFF; color: #FFF; padding: 12px 30px; font-weight: 700; text-decoration: none; border-radius: 4px; font-size: 0.9rem; text-transform: uppercase; transition: all 0.3s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    /* Social Bar */
+    .social-bar { background: var(--navy-dark); color: #9CA3AF; padding: 16px 5%; text-align: center; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); }
+    .social-buttons a { color: var(--gold); text-decoration: none; font-weight: 600; margin: 0 10px; }
+    .social-buttons a:hover { color: #FFF; }
+
+    /* Grid de Servicios */
+    .services-section { padding: 70px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 40px; }
+    .section-title h2 { font-size: 2.2rem; color: var(--navy-blue); font-weight: 800; }
+    .section-title p { color: var(--text-muted); font-size: 1rem; margin-top: 5px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .service-card { background: #FFF; border-radius: 8px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--navy-blue); transition: transform 0.3s; }
+    .service-card:hover { transform: translateY(-5px); border-top-color: var(--gold); }
+    .service-card h3 { color: var(--navy-blue); font-size: 1.2rem; margin-bottom: 12px; font-weight: 700; }
+    .service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* Misión y Visión */
+    .about-section { padding: 70px 5%; background: #FFF; }
+    .about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+    .about-box { background: var(--gray-bg); padding: 35px; border-radius: 8px; border-left: 4px solid var(--gold); }
+    .about-box h3 { color: var(--navy-blue); font-size: 1.4rem; margin-bottom: 12px; font-weight: 700; }
+    .about-box p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Catálogo PDF */
+    .catalog-section { padding: 70px 5%; max-width: 1200px; margin: 0 auto; }
+    .catalog-header { text-align: center; margin-bottom: 30px; }
+    .btn-download { display: inline-block; background: var(--navy-blue); color: #FFF; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; margin-top: 15px; transition: background 0.3s; }
+    .btn-download:hover { background: var(--gold); color: #000; }
+    .iframe-box { background: #FFF; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #E5E7EB; margin-top: 20px; }
+
+    /* RSE */
+    .rse-section { padding: 70px 5%; background: var(--navy-dark); color: #FFF; }
+    .rse-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 40px auto 0 auto; }
+    .rse-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 8px; }
+    .rse-card span { color: var(--gold); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .rse-card h3 { font-size: 1.2rem; margin: 10px 0; color: #FFF; }
+    .rse-card p { color: #9CA3AF; font-size: 0.88rem; }
+
+    /* Formulario de Contacto */
+    .contact-section { padding: 70px 5%; max-width: 750px; margin: 0 auto; }
+    .contact-card { background: var(--gray-card); padding: 45px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 4px solid var(--gold); }
+    .contact-card h2 { color: var(--navy-blue); margin-bottom: 8px; font-weight: 800; }
+    .contact-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; }
+
+    .form-group { margin-bottom: 20px; text-align: left; }
+    .form-group label { display: block; font-weight: 700; font-size: 0.85rem; color: var(--navy-blue); margin-bottom: 6px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #D1D5DB; border-radius: 4px; font-size: 0.95rem; outline: none; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--navy-blue); }
+
+    .btn-submit { width: 100%; background: var(--navy-blue); color: #FFF; padding: 16px; border: none; border-radius: 4px; font-weight: 800; font-size: 1rem; cursor: pointer; transition: background 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-submit:hover { background: var(--gold); color: #000; }
+
+    /* Footer */
+    footer { background: #050E1A; color: #9CA3AF; text-align: center; padding: 35px 5%; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .matriz-info { font-size: 0.75rem; color: #6B7280; margin-top: 8px; }
+
+    @media (max-width: 768px) {
+      .navbar { flex-direction: column; gap: 15px; }
+      .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .hero h1 { font-size: 2.1rem; }
+      .contact-card { padding: 25px; }
+    }
+  </style>
 </head>
-<body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950 min-h-screen flex flex-col justify-between">
+<body>
 
-  <!-- HEADER CORPORATIVO RESPONSIVO -->
-  <header class="sticky top-0 z-50 bg-[#030712]/90 backdrop-blur-xl border-b border-slate-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <!-- LOGO MILOR -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition duration-300">
-          M
+  <!-- BOTÓN FLOTANTE DE WHATSAPP COLOMBIA -->
+  <a href="https://wa.me/573219216097?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20MILOR%20Colombia" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener" 
+     aria-label="Contacto por WhatsApp Colombia">
+    <svg viewBox="0 0 32 32" class="whatsapp-icon">
+      <path fill="#FFF" d="M16 2a13 13 0 0 0-11 19.8L3 29l7.3-1.9A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.5A10.8 10.8 0 1 1 16 25.8zm5.9-8.1c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5.2-.7.4-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1a8.1 8.1 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.4.1-.6s-.7-1.8-1-2.4c-.3-.6-.6-.5-.8-.5h-.7c-.2 0-.7.1-1.1.5-.4.4-1.5 1.5-1.5 3.6s1.5 4.2 1.7 4.5c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 2 .3 2.7.2.8-.1 2.5-1 2.8-2 .4-.9.4-1.7.3-1.8-.1-.2-.3-.3-.6-.4z"/>
+    </svg>
+  </a>
+
+  <!-- NAVBAR INSTITUCIONAL -->
+  <header class="navbar">
+    <a href="#" class="logo-container">
+      <span class="logo-title">MILOR</span>
+      <span class="logo-subtitle">COMERCIALIZADORA Y CONSTRUCTORA</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#rse">RSE</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="selectors">
+      <div class="dropdown">
+        <button class="dropbtn">🇨🇴 CO ▾</button>
+        <div class="dropdown-content">
+          <a href="/MILORCOLOMBIA/mx/es/">🇲🇽 México</a>
         </div>
-        <div>
-          <span class="text-xl font-extrabold tracking-tight text-white block leading-none">MILOR</span>
-          <span class="text-[9px] text-amber-400 font-mono tracking-widest uppercase">Comercializadora</span>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">ES ▾</button>
+        <div class="dropdown-content">
+          <a href="/MILORCOLOMBIA/co/en/">EN (English)</a>
         </div>
-      </a>
-      
-      <!-- NAV DESKTOP -->
-      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-300">
-        <a href="#inicio" class="hover:text-amber-400 transition">Inicio</a>
-        <a href="#nosotros" class="hover:text-amber-400 transition">Nosotros</a>
-        <a href="#catalogo" class="hover:text-amber-400 transition">Catálogo</a>
-        <a href="#rse" class="hover:text-amber-400 transition">RSE & Comunidad</a>
-      </nav>
-
-      <!-- SELECTOR DE REGION / IDIOMA & COTIZAR -->
-      <div class="flex items-center gap-3">
-        <select onchange="location = this.value;" class="bg-slate-900 text-amber-400 border border-slate-700/80 text-xs font-medium rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-amber-500">
-          <option value="/MILORCOLOMBIA/" selected>🇨🇴 CO (Español)</option>
-          <option value="/MILORCOLOMBIA/co/en/">🇨🇴 CO (English)</option>
-          <option value="/MILORCOLOMBIA/mx/es/">🇲🇽 MX (Español)</option>
-          <option value="/MILORCOLOMBIA/mx/en/">🇲🇽 MX (English)</option>
-        </select>
-
-        <a href="https://wa.me/573219216097" target="_blank" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-wide transition shadow-lg shadow-amber-500/15">
-          Cotizar WhatsApp
-        </a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
-    <section id="inicio" class="relative py-20 lg:py-32 bg-gradient-to-b from-[#0b1329] via-[#050b18] to-[#030712] overflow-hidden border-b border-slate-800/60">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-blue-600/10 blur-[140px] pointer-events-none"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+    <!-- HERO SECTION EJECUTIVO -->
+    <section id="inicio" class="hero">
+      <div class="hero-container">
+        <span class="tag-national">PRIMERA FILIAL INTERNACIONAL • COLOMBIA</span>
+        <h1>Soluciones Integrales en Comercialización y Construcción</h1>
+        <p>Llevamos la solidez, experiencia e innovación corporativa de MILOR México al mercado colombiano. Materiales de vanguardia, tuberías, gerencia de obras civiles e infraestructura pesada.</p>
         
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold tracking-wide uppercase">
-          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-          Casa Matriz México • Primera Filial Colombia
-        </div>
-
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
-          Infraestructura y Material Eléctrico de Alta Tensión
-        </h1>
-
-        <p class="text-slate-300 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
-          Proveedores líderes en aisladores de porcelana, herrajes de potencia y brazos galvanizados. Soluciones con estándares de calidad internacional para el sector energético.
-        </p>
-
-        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm tracking-wide transition shadow-xl shadow-amber-500/20">
-            Ver Catálogo Técnico
-          </a>
-          <a href="#nosotros" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-sm tracking-wide transition">
-            Conocer la Empresa
-          </a>
+        <div class="cta-actions">
+          <a href="#catalogo" class="btn-primary">Ver Catálogo Técnico</a>
+          <a href="#contacto" class="btn-secondary">Contactar a la Filial</a>
         </div>
       </div>
     </section>
 
-    <!-- IDENTIDAD CORPORATIVA: NOSOTROS / MISIÓN / VISIÓN -->
-    <section id="nosotros" class="py-20 lg:py-28 bg-[#030712] relative border-b border-slate-800/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        
-        <div class="max-w-3xl space-y-4">
-          <span class="text-amber-400 text-xs font-mono tracking-widest uppercase">Estructura & Trayectoria</span>
-          <h2 class="text-3xl sm:text-5xl font-black text-white">Nuestra Identidad Corporativa</h2>
-          <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-            MILOR Comercializadora se consolida en México como referente en la comercialización y distribución de infraestructura eléctrica industrial. En el marco de nuestra estrategia de expansión internacional, establecemos a Colombia como nuestra primera filial estratégica para atender el mercado sudamericano con excelencia y confiabilidad.
-          </p>
+    <!-- BARRA DE REDES SOCIALES INSTITUCIONALES -->
+    <section class="social-bar">
+      <span>Canales Oficiales:</span>
+      <div class="social-buttons">
+        <a href="https://www.instagram.com/milor_co/" target="_blank" rel="noopener">Instagram Colombia (@milor_co)</a>
+        <a href="https://www.instagram.com/milor_mx/" target="_blank" rel="noopener">Instagram México (@milor_mx)</a>
+        <a href="https://www.facebook.com/people/Milor-Mx/61576844482856/" target="_blank" rel="noopener">Facebook Matriz</a>
+      </div>
+    </section>
+
+    <!-- LÍNEAS DE NEGOCIO Y SERVICIOS INTEGRALES -->
+    <section id="servicios" class="services-section">
+      <div class="section-title">
+        <h2>Soluciones Integrales en Comercialización y Construcción</h2>
+        <p>Innovación en materiales pesados, ingeniería civil y gerencia estratégica de proyectos.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>🧬 Biopolímeros & Materiales Innovadores</h3>
+          <p>Suministro de materiales de última generación, resinas avanzadas y biopolímeros estructurales para una construcción sostenible y de alta resistencia.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- TARJETA MISIÓN -->
-          <div class="bg-gradient-to-br from-slate-900/80 to-blue-950/30 p-8 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/40 transition">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xl">🎯</div>
-            <h3 class="text-2xl font-bold text-white">Misión</h3>
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Garantizar el suministro oportuno y confiable de infraestructura y material eléctrico de alta y media tensión —incluyendo aisladores de porcelana, herrajes de potencia y brazos galvanizados— cumpliendo con los más estrictos estándares técnicos de calidad y seguridad para respaldar el desarrollo energético de América Latina.
-            </p>
-          </div>
+        <div class="service-card">
+          <h3>🚰 Tuberías & Conducción Industrial</h3>
+          <p>Comercialización e instalación de sistemas de tuberías para redes hidráulicas, sanitarias, pluviales y canalizaciones industriales de gran alcance.</p>
+        </div>
 
-          <!-- TARJETA VISIÓN -->
-          <div class="bg-gradient-to-br from-slate-900/80 to-blue-950/30 p-8 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/40 transition">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xl">👁️</div>
-            <h3 class="text-2xl font-bold text-white">Visión</h3>
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Consolidarnos para el año 2030 como el socio estratégico transnacional líder en la comercialización y distribución de insumos eléctricos pesados en Norteamérica y la Región Andina, destacándonos por la excelencia operativa, la expansión binacional México-Colombia y el compromiso con el desarrollo social de nuestras comunidades.
-            </p>
-          </div>
+        <div class="service-card">
+          <h3>🏗️ Gerencia de Proyectos de Construcción</h3>
+          <p>Dirección técnica, supervisión operativa y ejecución integral de proyectos de obra civil, desarrollos urbanísticos e infraestructura corporativa.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>⚡ Infraestructura & Alumbrado Público</h3>
+          <p>Montaje, elevación e izaje de postes de alumbrado, tendido de redes y suministro de aisladores de porcelana y herrajes de potencia.</p>
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN CATÁLOGO TÉCNICO EMBED GOOGLE DRIVE -->
-    <section id="catalogo" class="py-20 lg:py-28 bg-[#050b18] relative border-b border-slate-800/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        
-        <div class="text-center max-w-3xl mx-auto space-y-3">
-          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest">
-            Documentación Técnica Oficial
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-black text-white">Catálogo General de Productos</h2>
-          <p class="text-slate-400 text-sm sm:text-base">Consulte directamente la ficha técnica de aisladores, herrajes y elementos de alta tensión.</p>
+    <!-- NOSOTROS / MISIÓN Y VISIÓN FILIAL -->
+    <section id="nosotros" class="about-section">
+      <div class="about-container">
+        <div class="about-box">
+          <h3>🎯 Misión Filial Colombia</h3>
+          <p>Impulsar el desarrollo de infraestructura y construcción mediante la comercialización de materiales de vanguardia —incluyendo biopolímeros, tuberías de alta especificación y componentes eléctricos— junto con una gerencia integral de proyectos de obra civil con los más altos estándares técnicos.</p>
         </div>
-
-        <!-- CONTENEDOR DEL VISOR PDF -->
-        <div class="bg-slate-900/90 rounded-2xl p-4 sm:p-6 border border-slate-800 shadow-2xl space-y-4">
-          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-800">
-            <h3 class="text-sm sm:text-base font-bold text-slate-200 flex items-center gap-2">
-              <span>📄</span> Visor Interactivo de Infraestructura
-            </h3>
-            
-            <a href="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs tracking-wide text-center transition shadow-lg shadow-amber-500/10">
-              📥 Descargar Catálogo PDF ↗
-            </a>
-          </div>
-
-          <!-- IFRAME VISOR DE GOOGLE DRIVE -->
-          <div class="w-full h-[450px] sm:h-[600px] lg:h-[750px] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
-            <iframe 
-              src="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/preview" 
-              class="w-full h-full border-0" 
-              allow="autoplay"
-              title="Visor de Catálogo MILOR">
-            </iframe>
-          </div>
+        <div class="about-box">
+          <h3>👁️ Visión Regional 2030</h3>
+          <p>Posicionarnos como el referente binacional en la distribución de materiales de construcción con innovación tecnológica y en la dirección estratégica de proyectos de ingeniería, conectando la capacidad operativa de México con la expansión en Colombia.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- VISOR DE CATÁLOGO TÉCNICO -->
+    <section id="catalogo" class="catalog-section">
+      <div class="catalog-header">
+        <div class="section-title">
+          <h2>Catálogo Comercial & Constructora 2026</h2>
+          <p>Consulte nuestro portafolio técnico oficial de aisladores, herrajes y soluciones de infraestructura.</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/view?usp=sharing" target="_blank" rel="noopener" class="btn-download">
+          📥 Descargar Catálogo PDF Completo
+        </a>
+      </div>
+
+      <div class="iframe-box">
+        <iframe 
+          src="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/preview" 
+          width="100%" 
+          height="700" 
+          title="Catálogo MILOR 2026">
+        </iframe>
       </div>
     </section>
 
     <!-- RESPONSABILIDAD SOCIAL EMPRESARIAL (RSE) -->
-    <section id="rse" class="py-20 lg:py-28 bg-[#030712] text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div class="text-center max-w-3xl mx-auto space-y-4">
-          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest">Compromiso Institucional</span>
-          <h2 class="text-3xl sm:text-5xl font-black">Responsabilidad Social Empresarial (RSE)</h2>
-          <p class="text-slate-400 text-base">Invertimos activamente en el desarrollo cultural, artístico y deportivo de nuestras comunidades.</p>
-        </div>
+    <section id="rse" class="rse-section">
+      <div class="section-title" style="color: #FFF;">
+        <h2 style="color: #FFF;">Responsabilidad Social Empresarial</h2>
+        <p style="color: #9CA3AF;">Inversión directa en el desarrollo humano, deportivo y artístico de nuestras comunidades.</p>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
-            <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Cultura & Danza</span>
-            <h3 class="text-xl font-bold">Conde Dance Company</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Formación integral de jóvenes en Chicoloapan (Estado de México) mediante becas del 25% y 50% con proyección e intercambios culturales binacionales.</p>
-          </div>
-          <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
-            <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Arte Plástico</span>
-            <h3 class="text-xl font-bold">Julián David López Trejo</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Promoción del patrimonio cultural e iniciativas artísticas, destacando la develación del retrato de Sor Juana Inés de la Cruz en la Embajada de México en Bogotá.</p>
-          </div>
-          <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
-            <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Deporte</span>
-            <h3 class="text-xl font-bold">Ciclismo & Boxeo</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">Patrocinio a atletas de alto rendimiento en el Campeonato Bike Marathon Interestatal XCO y fomento del deporte juvenil como eje de disciplina social.</p>
-          </div>
+      <div class="rse-grid">
+        <div class="rse-card">
+          <span>Cultura & Danza</span>
+          <h3>Conde Dance Company</h3>
+          <p>Programa de becas de formación en danza e intercambios culturales binacionales para jóvenes en Chicoloapan, Estado de México.</p>
         </div>
+        <div class="rse-card">
+          <span>Arte Plástico</span>
+          <h3>Julián David López Trejo</h3>
+          <p>Impulso al patrimonio cultural, destacando la develación del retrato de Sor Juana Inés de la Cruz en la Embajada de México en Bogotá.</p>
+        </div>
+        <div class="rse-card">
+          <span>Deporte de Alto Rendimiento</span>
+          <h3>Ciclismo & Boxeo</h3>
+          <p>Patrocinio en el Campeonato Bike Marathon Interestatal XCO y fomento del deporte juvenil como motor de transformación social.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO FILIAL COLOMBIA -->
+    <section id="contacto" class="contact-section">
+      <div class="contact-card">
+        <h2>Contacto Comercial Directo</h2>
+        <p>Envíe sus consultas comerciales, proyectos o solicitudes de cotización a la filial MILOR Colombia.</p>
+
+        <form action="https://formsubmit.co/milorcolombia2026@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nueva consulta desde la web MILOR Colombia">
+
+          <div class="form-group">
+            <label for="nombre">Nombre Completo / Empresa</label>
+            <input type="text" id="nombre" name="Nombre" placeholder="Ej. Constructora Andina S.A.S." required>
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="Correo" placeholder="correo@empresa.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <input type="tel" id="telefono" name="Telefono" placeholder="+57 300 000 0000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Detalle del Requerimiento u Obra</label>
+            <textarea id="mensaje" name="Mensaje" rows="4" placeholder="Especificaciones de material, volúmenes o proyecto de construcción..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar Requerimiento</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER CORPORATIVO -->
-  <footer class="bg-[#02050b] border-t border-slate-800 py-12 text-center text-xs text-slate-500 space-y-3">
-    <p class="font-semibold text-slate-400">MILOR Comercializadora S.A.S. — México (Casa Matriz) & Colombia (Filial)</p>
-    <p>© 2026 MILOR Comercializadora. Todos los derechos reservados.</p>
+  <!-- FOOTER INSTITUCIONAL -->
+  <footer>
+    <p><strong>MILOR Colombia S.A.S.</strong> &copy; 2026 — Comercializadora & Constructora. Todos los derechos reservados.</p>
+    <p class="matriz-info">En coordinación binacional con MILOR Sede Matriz México (Chicoloapan, Edo. de Méx.).</p>
   </footer>
 
 </body>
