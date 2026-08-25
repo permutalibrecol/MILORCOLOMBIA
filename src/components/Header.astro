@@ -1,1 +1,107 @@
+---
+interface Props {
+  currentLang?: 'es' | 'en';
+  currentCountry?: 'co' | 'mx';
+}
 
+const { currentLang = 'es', currentCountry = 'co' } = Astro.props;
+
+// Obtener el base path de GitHub Pages de forma segura
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Diccionario dinámico para el menú de navegación con base URL integrada
+const navItems = {
+  es: [
+    { label: 'Inicio', href: `${baseUrl}/` },
+    { label: 'Catálogo', href: `${baseUrl}/#catalogo` },
+    { label: 'RSE y Blog', href: `${baseUrl}/#blog` },
+    { label: 'Contacto', href: `${baseUrl}/#contacto` },
+  ],
+  en: [
+    { label: 'Home', href: `${baseUrl}/` },
+    { label: 'Catalog', href: `${baseUrl}/#catalogo` },
+    { label: 'CSR & Blog', href: `${baseUrl}/#blog` },
+    { label: 'Contact', href: `${baseUrl}/#contacto` },
+  ]
+};
+
+const links = navItems[currentLang] || navItems.es;
+---
+
+<header class="sticky top-0 z-50 w-full bg-gradient-to-r from-[#0c1938] via-[#152a56] to-[#1e3b70] text-white shadow-xl border-b border-blue-900/40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Logo Marca -->
+      <a href={`${baseUrl}/`} class="flex items-center gap-3 group">
+        <div class="bg-amber-500 text-slate-950 font-black text-xl px-3 py-1.5 rounded tracking-wider shadow-md group-hover:bg-amber-400 transition">
+          MILOR
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold tracking-tight text-white leading-tight text-base sm:text-lg">COMERCIALIZADORA</span>
+          <span class="text-xs text-blue-200 tracking-wider">Y CONSTRUCCIÓN</span>
+        </div>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav class="hidden md:flex items-center gap-8 font-medium">
+        {links.map(item => (
+          <a href={item.href} class="text-blue-100 hover:text-amber-400 transition-colors py-1 text-sm uppercase tracking-wider">
+            {item.label}
+          </a>
+        ))}
+        
+        <!-- Selector de Región e Idioma (Desktop) -->
+        <div class="flex items-center bg-blue-950/80 border border-blue-700/50 rounded-lg p-1 text-xs">
+          <a href={`${baseUrl}/`} class={`px-2 py-1 rounded transition ${currentCountry === 'co' && currentLang === 'es' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-blue-200 hover:text-white'}`}>🇨🇴 ES</a>
+          <a href={`${baseUrl}/`} class={`px-2 py-1 rounded transition ${currentCountry === 'co' && currentLang === 'en' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-blue-200 hover:text-white'}`}>🇨🇴 EN</a>
+          <span class="text-blue-700 mx-1">|</span>
+          <a href={`${baseUrl}/`} class={`px-2 py-1 rounded transition ${currentCountry === 'mx' && currentLang === 'es' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-blue-200 hover:text-white'}`}>🇲🇽 ES</a>
+          <a href={`${baseUrl}/`} class={`px-2 py-1 rounded transition ${currentCountry === 'mx' && currentLang === 'en' ? 'bg-amber-500 text-slate-950 font-bold' : 'text-blue-200 hover:text-white'}`}>🇲🇽 EN</a>
+        </div>
+      </nav>
+
+      <!-- Botón Menú Hamburguesa (Mobile) -->
+      <div class="md:hidden flex items-center gap-3">
+        <button id="mobile-menu-btn" aria-label="Abrir Menú" class="p-2.5 rounded-lg bg-blue-900/60 border border-blue-700/50 text-white hover:bg-blue-800 transition">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Desplegable Menú Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#09132b] border-t border-blue-800/60 px-4 pt-4 pb-6 space-y-4 shadow-2xl">
+    <div class="flex flex-col space-y-3">
+      {links.map(item => (
+        <a href={item.href} class="text-blue-100 hover:text-amber-400 font-medium py-2 px-3 rounded-md hover:bg-blue-900/40 transition">
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Selector de Región e Idioma (Mobile) -->
+    <div class="pt-4 border-t border-blue-900/80">
+      <span class="text-xs uppercase text-blue-400 tracking-wider block mb-2 font-semibold">Región e Idioma</span>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <a href={`${baseUrl}/`} class={`p-2 rounded text-center border ${currentCountry === 'co' && currentLang === 'es' ? 'bg-amber-500 text-slate-950 border-amber-400 font-bold' : 'bg-blue-950 text-blue-200 border-blue-800'}`}>🇨🇴 Colombia (ES)</a>
+        <a href={`${baseUrl}/`} class={`p-2 rounded text-center border ${currentCountry === 'co' && currentLang === 'en' ? 'bg-amber-500 text-slate-950 border-amber-400 font-bold' : 'bg-blue-950 text-blue-200 border-blue-800'}`}>🇨🇴 Colombia (EN)</a>
+        <a href={`${baseUrl}/`} class={`p-2 rounded text-center border ${currentCountry === 'mx' && currentLang === 'es' ? 'bg-amber-500 text-slate-950 border-amber-400 font-bold' : 'bg-blue-950 text-blue-200 border-blue-800'}`}>🇲🇽 México (ES)</a>
+        <a href={`${baseUrl}/`} class={`p-2 rounded text-center border ${currentCountry === 'mx' && currentLang === 'en' ? 'bg-amber-500 text-slate-950 border-amber-400 font-bold' : 'bg-blue-950 text-blue-200 border-blue-800'}`}>🇲🇽 México (EN)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Lógica interactiva del botón Hamburguesa
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
