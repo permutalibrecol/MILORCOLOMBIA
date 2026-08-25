@@ -1,0 +1,216 @@
+---
+const currentLang = 'es';
+const currentRegion = 'co';
+
+const content = {
+  heroTag: "Casa Matriz México • Primera Filial Colombia",
+  title: "Infraestructura y Material Eléctrico de Alta Tensión",
+  subtitle: "Líderes en comercialización de aisladores de porcelana, herrajes de potencia y brazos galvanizados. Conectamos la energía de América Latina con calidad certificada.",
+  btnCatalog: "Explorar Catálogo Técnico",
+  btnContact: "Contacto Directo",
+  aboutTitle: "Nuestra Identidad Corporativa",
+  aboutDesc: "MILOR Comercializadora nace en México como referente en distribución de componentes eléctricos industriales. En el marco de nuestro plan de expansión regional, consolidamos a Colombia como nuestra primera filial estratégica para la atención del mercado sudamericano.",
+  misionTitle: "Misión",
+  misionDesc: "Garantizar el suministro oportuno de infraestructura eléctrica de alta tensión, cumpliendo los más exigentes estándares internacionales de calidad y confiabilidad operativa.",
+  visionTitle: "Visión",
+  visionDesc: "Ser reconocidos para el 2030 como el socio estratégico predilecto en la comercialización de insumos eléctricos pesados en Norteamérica y la región Andina.",
+  catalogBadge: "Documentación & Normatividad",
+  catalogTitle: "Catálogo General de Infraestructura",
+  catalogSubtitle: "Visualice o descargue las fichas técnicas, homologaciones y especificaciones de nuestro portafolio de aisladores y herrajes.",
+  driveEmbedUrl: "https://drive.google.com/file/d/1-8R-W7a9E5Zl4mZk3w4-5_example/preview",
+  driveDirectUrl: "https://drive.google.com/file/d/1-8R-W7a9E5Zl4mZk3w4-5_example/view?usp=sharing",
+  rseTag: "Impacto & Desarrollo Social",
+  rseTitle: "Responsabilidad Social Empresarial",
+  rseDesc: "Invertimos en el desarrollo humano, cultural y deportivo en las comunidades donde mantenemos presencia operativa.",
+};
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth bg-slate-950">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MILOR Comercializadora | Infraestructura Eléctrica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+            colors: {
+              gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' }
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950 min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER RESPONSIVO -->
+    <header class="sticky top-0 z-50 bg-[#030712]/90 backdrop-blur-xl border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- LOGO -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition duration-300">
+            M
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight text-white block leading-none">MILOR</span>
+            <span class="text-[9px] text-amber-400 font-mono tracking-widest uppercase">Comercializadora</span>
+          </div>
+        </a>
+
+        <!-- NAVEGACIÓN DESKTOP -->
+        <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-300">
+          <a href="#nosotros" class="hover:text-amber-400 transition">Nosotros</a>
+          <a href="#catalogo" class="hover:text-amber-400 transition">Catálogo</a>
+          <a href="#rse" class="hover:text-amber-400 transition">RSE & Comunidad</a>
+        </nav>
+
+        <!-- SELECTOR DE REGION & WHATSAPP -->
+        <div class="flex items-center gap-3">
+          <select onchange="location = this.value;" class="bg-slate-900 text-amber-400 border border-slate-700/80 text-xs font-medium rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-amber-500">
+            <option value="/MILORCOLOMBIA/" selected>🇨🇴 Colombia (ES)</option>
+            <option value="/MILORCOLOMBIA/co/en/">🇨🇴 Colombia (EN)</option>
+            <option value="/MILORCOLOMBIA/mx/es/">🇲🇽 México (ES)</option>
+            <option value="/MILORCOLOMBIA/mx/en/">🇲🇽 México (EN)</option>
+          </select>
+
+          <a href="https://wa.me/573219216097" target="_blank" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-wide transition shadow-lg shadow-amber-500/15">
+            Cotizar
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section class="relative py-20 lg:py-32 bg-gradient-to-b from-[#0b1329] via-[#050b18] to-[#030712] overflow-hidden border-b border-slate-800/60">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-blue-600/10 blur-[140px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            {content.heroTag}
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+            {content.title}
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+            {content.subtitle}
+          </p>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm tracking-wide transition shadow-xl shadow-amber-500/20">
+              {content.btnCatalog}
+            </a>
+            <a href="#nosotros" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-sm tracking-wide transition">
+              {content.btnContact}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOSOTROS / MISIÓN / VISIÓN -->
+      <section id="nosotros" class="py-20 lg:py-28 bg-[#030712] relative border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          <div class="max-w-3xl space-y-4">
+            <span class="text-amber-400 text-xs font-mono tracking-widest uppercase">Estructura Corporativa</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white">{content.aboutTitle}</h2>
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed">{content.aboutDesc}</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-gradient-to-br from-slate-900/80 to-blue-950/30 p-8 rounded-2xl border border-slate-800 space-y-3">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xl">🎯</div>
+              <h3 class="text-xl font-bold text-white">{content.misionTitle}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">{content.misionDesc}</p>
+            </div>
+            <div class="bg-gradient-to-br from-slate-900/80 to-blue-950/30 p-8 rounded-2xl border border-slate-800 space-y-3">
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xl">👁️</div>
+              <h3 class="text-xl font-bold text-white">{content.visionTitle}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">{content.visionDesc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN CATÁLOGO TÉCNICO -->
+      <section id="catalogo" class="py-20 lg:py-28 bg-[#050b18] relative border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="text-center max-w-3xl mx-auto space-y-3">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest">
+              {content.catalogBadge}
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white">{content.catalogTitle}</h2>
+            <p class="text-slate-400 text-sm sm:text-base">{content.catalogSubtitle}</p>
+          </div>
+
+          <!-- CONTENEDOR DEL VISOR DE GOOGLE DRIVE RESPONSIVO -->
+          <div class="bg-slate-900/90 rounded-2xl p-4 sm:p-6 border border-slate-800 shadow-2xl space-y-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-800">
+              <h3 class="text-sm sm:text-base font-bold text-slate-200 flex items-center gap-2">
+                <span>📄</span> Especificaciones de Producto & Tablas Técnicas
+              </h3>
+              <a href={content.driveDirectUrl} target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs tracking-wide text-center transition shadow-lg shadow-amber-500/10">
+                Abrir en Google Drive ↗
+              </a>
+            </div>
+
+            <!-- IFRAME RESPONSIVO MÓVIL/TABLET/DESKTOP -->
+            <div class="w-full h-[450px] sm:h-[600px] lg:h-[750px] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
+              <iframe 
+                src={content.driveEmbedUrl} 
+                class="w-full h-full border-0" 
+                allow="autoplay"
+                title="Visor de Catálogo MILOR">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RSE & RESPONSABILIDAD SOCIAL -->
+      <section id="rse" class="py-20 lg:py-28 bg-[#030712] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div class="text-center max-w-3xl mx-auto space-y-4">
+            <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest">{content.rseTag}</span>
+            <h2 class="text-3xl sm:text-5xl font-black">{content.rseTitle}</h2>
+            <p class="text-slate-400 text-base">{content.rseDesc}</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
+              <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Cultura & Danza</span>
+              <h3 class="text-xl font-bold">Conde Dance Company</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Formación integral de jóvenes talentos en Chicoloapan (Estado de México) mediante programas de becas e intercambios culturales binacionales.</p>
+            </div>
+            <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
+              <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Arte Plástico</span>
+              <h3 class="text-xl font-bold">Julián David López Trejo</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Promoción del patrimonio cultural e iniciativas artísticas, destacando la develación del retrato de Sor Juana Inés de la Cruz en la Embajada de México en Bogotá.</p>
+            </div>
+            <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
+              <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Deporte</span>
+              <h3 class="text-xl font-bold">Ciclismo & Boxeo</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Patrocinio a atletas de alto rendimiento en el Campeonato Bike Marathon Interestatal XCO y fomento de disciplinas deportivas juveniles.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#02050b] border-t border-slate-800 py-12 text-center text-xs text-slate-500 space-y-3">
+      <p class="font-semibold text-slate-400">MILOR Comercializadora S.A.S. — México & Colombia</p>
+      <p>© 2026 MILOR. Todos los derechos reservados. Infraestructura Eléctrica de Alta Tensión.</p>
+    </footer>
+  </body>
+</html>
