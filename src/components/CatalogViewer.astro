@@ -1,1 +1,96 @@
+---
+interface Props {
+  currentLang?: 'es' | 'en';
+}
 
+const { currentLang = 'es' } = Astro.props;
+
+// Obtener la URL base de GitHub Pages
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const content = {
+  es: {
+    badge: "Fichas Técnicas & Especificaciones",
+    title: "Catálogo de Productos Eléctricos",
+    subtitle: "Explore nuestro catálogo de aisladores tipo carrete, brazos galvanizados y sistemas fotométricos.",
+    specsLabel: "Normas de Fabricación:",
+    whatsappCatalog: "Consultar Disponibilidad",
+    downloadCatalog: "Descargar Catálogo Completo (PDF)"
+  },
+  en: {
+    badge: "Technical Specs & Data Sheets",
+    title: "Electrical Products Catalog",
+    subtitle: "Explore our catalog of spool insulators, galvanized arms, and photometric systems.",
+    specsLabel: "Manufacturing Standards:",
+    whatsappCatalog: "Check Stock & Pricing",
+    downloadCatalog: "Download Full Catalog (PDF)"
+  }
+};
+
+const t = content[currentLang] || content.es;
+const whatsappLink = "https://wa.me/573219216097?text=Hola,%20quisiera%20solicitar%20informaci%C3%B3n%20detallada%20sobre%20el%20cat%C3%A1logo%20de%20productos%20el%C3%A9ctricos.";
+---
+
+<section id="catalogo" class="py-20 bg-slate-900 text-white relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header del Catálogo -->
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/30 text-amber-400 uppercase tracking-wider">
+        {t.badge}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        {t.title}
+      </h2>
+      <p class="text-blue-200 text-base sm:text-lg">
+        {t.subtitle}
+      </p>
+    </div>
+
+    <!-- Contenedor del Visor del Catálogo Embebido -->
+    <div class="bg-slate-950 rounded-2xl border border-blue-900/60 p-4 sm:p-6 shadow-2xl relative overflow-hidden">
+      
+      <div class="aspect-video w-full rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center relative overflow-hidden">
+        <!-- iFrame de visor del catálogo -->
+        <iframe 
+          src="https://docs.google.com/viewer?url=https://milorcomercializadora.com/catalogo.pdf&embedded=true" 
+          class="w-full h-[500px] sm:h-[650px] rounded-lg border-0"
+          title="Catálogo MILOR"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Barra de Acciones del Catálogo -->
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-800">
+        <div class="text-xs text-slate-400 flex items-center gap-2">
+          <span>🔒 {t.specsLabel}</span>
+          <strong class="text-amber-400 font-mono">CFE / NMX / ANSI</strong>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+          <a 
+            href={whatsappLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm text-center transition flex items-center justify-center gap-2"
+          >
+            <span>💬 {t.whatsappCatalog}</span>
+          </a>
+
+          <a 
+            href={`${baseUrl}/catalogo.pdf`} 
+            download
+            class="flex-1 sm:flex-none px-6 py-2.5 rounded-lg bg-blue-900/80 hover:bg-blue-800 border border-blue-700/50 text-white font-semibold text-xs sm:text-sm text-center transition flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            <span>{t.downloadCatalog}</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
