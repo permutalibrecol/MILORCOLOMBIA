@@ -9,10 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy-blue: #0F2B48;
-      --navy-dark: #0A1C30;
-      --gold: #C29B38;
-      --gold-light: #DFB858;
+      --navy-blue: #0F3D6C;       /* Azul Marino Vivo */
+      --navy-dark: #071D36;       /* Azul Noche Oscuro */
+      --electric-blue: #1E5FA8;   /* Azul Eléctrico */
+      --gold: #FFD700;            /* Amarillo Vivo / Oro Neón */
+      --gold-hover: #E6C200;      /* Amarillo Vivo Hover */
       --gray-bg: #F4F6F9;
       --gray-card: #FFFFFF;
       --text-dark: #1F2937;
@@ -48,39 +49,66 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 5%;
+      padding: 1.1rem 5%;
       background-color: var(--navy-blue);
       position: sticky;
       top: 0;
       z-index: 900;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
     .logo-container { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
-    .logo-title { font-size: 1.6rem; font-weight: 900; color: #FFFFFF; letter-spacing: 2.5px; }
-    .logo-subtitle { color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .logo-title { font-size: 1.7rem; font-weight: 900; color: #FFFFFF; letter-spacing: 2.5px; }
+    .logo-subtitle { color: #FFFFFF; font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.95; }
 
-    .nav-links a { color: #E5E7EB; text-decoration: none; margin: 0 10px; font-size: 0.85rem; font-weight: 600; transition: color 0.3s; text-transform: uppercase; }
+    .nav-links a { color: #FFFFFF; text-decoration: none; margin: 0 10px; font-size: 0.85rem; font-weight: 600; transition: color 0.3s; text-transform: uppercase; }
     .nav-links a:hover { color: var(--gold); }
 
     .selectors { display: flex; gap: 8px; }
-    .dropbtn { background: var(--navy-dark); color: #FFF; border: 1px solid rgba(194,155,56,0.4); padding: 6px 12px; font-weight: 600; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+    .dropbtn { background: var(--navy-dark); color: #FFF; border: 1px solid rgba(255,215,0,0.5); padding: 6px 12px; font-weight: 700; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
     .dropdown { position: relative; }
     .dropdown-content { display: none; position: absolute; right: 0; background: var(--navy-dark); border-radius: 4px; min-width: 140px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
     .dropdown-content a { color: #FFF; padding: 10px 14px; text-decoration: none; display: block; font-size: 0.8rem; }
-    .dropdown-content a:hover { background: var(--navy-blue); color: var(--gold); }
+    .dropdown-content a:hover { background: var(--electric-blue); color: var(--gold); }
     .dropdown:hover .dropdown-content { display: block; }
 
-    /* Hero Section */
-    .hero { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-blue) 100%); color: #FFF; padding: 100px 5% 90px 5%; text-align: center; }
-    .tag-national { background-color: rgba(194, 155, 56, 0.15); color: var(--gold-light); border: 1px solid var(--gold); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; display: inline-block; margin-bottom: 15px; }
-    .hero h1 { font-size: 2.8rem; font-weight: 800; margin: 15px auto; max-width: 950px; line-height: 1.25; }
-    .hero p { font-size: 1.1rem; color: #D1D5DB; max-width: 750px; margin: 0 auto 35px auto; font-weight: 400; }
+    /* Hero Section con Degradado Vivo */
+    .hero { 
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-blue) 45%, var(--electric-blue) 100%); 
+      color: #FFF; 
+      padding: 105px 5% 95px 5%; 
+      text-align: center; 
+    }
+    .tag-national { 
+      background-color: rgba(255, 215, 0, 0.18); 
+      color: var(--gold); 
+      border: 1.5px solid var(--gold); 
+      padding: 7px 18px; 
+      border-radius: 20px; 
+      font-size: 0.78rem; 
+      font-weight: 800; 
+      letter-spacing: 1.5px; 
+      display: inline-block; 
+      margin-bottom: 18px; 
+    }
+    .hero h1 { font-size: 2.9rem; font-weight: 900; margin: 15px auto; max-width: 950px; line-height: 1.25; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.15rem; color: #E5E7EB; max-width: 780px; margin: 0 auto 35px auto; font-weight: 400; }
     
     .cta-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-    .btn-primary { background: var(--gold); color: #000; padding: 14px 32px; font-weight: 800; text-decoration: none; border-radius: 4px; transition: all 0.3s; font-size: 0.9rem; text-transform: uppercase; }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-secondary { border: 2px solid #FFF; color: #FFF; padding: 12px 30px; font-weight: 700; text-decoration: none; border-radius: 4px; font-size: 0.9rem; text-transform: uppercase; transition: all 0.3s; }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+    .btn-primary { 
+      background: var(--gold); 
+      color: #000; 
+      padding: 15px 34px; 
+      font-weight: 800; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      transition: all 0.3s ease; 
+      font-size: 0.9rem; 
+      text-transform: uppercase; 
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+    }
+    .btn-primary:hover { background: var(--gold-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,215,0,0.4); }
+    .btn-secondary { border: 2px solid #FFF; color: #FFF; padding: 13px 32px; font-weight: 700; text-decoration: none; border-radius: 4px; font-size: 0.9rem; text-transform: uppercase; transition: all 0.3s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
 
     /* Bloque de Métricas y Estadísticas (Matriz) */
     .stats-section { background: var(--navy-dark); color: #FFF; padding: 45px 5%; border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -90,48 +118,63 @@
 
     /* Social Bar */
     .social-bar { background: var(--navy-dark); color: #9CA3AF; padding: 16px 5%; text-align: center; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); }
-    .social-buttons a { color: var(--gold); text-decoration: none; font-weight: 600; margin: 0 10px; }
+    .social-buttons a { color: var(--gold); text-decoration: none; font-weight: 700; margin: 0 10px; }
     .social-buttons a:hover { color: #FFF; }
 
     /* Grid de Servicios */
-    .services-section { padding: 70px 5%; max-width: 1200px; margin: 0 auto; }
-    .section-title { text-align: center; margin-bottom: 40px; }
-    .section-title h2 { font-size: 2.2rem; color: var(--navy-blue); font-weight: 800; }
-    .section-title p { color: var(--text-muted); font-size: 1rem; margin-top: 5px; }
+    .services-section { padding: 75px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 45px; }
+    .section-title h2 { font-size: 2.3rem; color: var(--navy-blue); font-weight: 800; }
+    .section-title p { color: var(--text-muted); font-size: 1rem; margin-top: 6px; }
 
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-    .service-card { background: #FFF; border-radius: 8px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--navy-blue); transition: transform 0.3s; }
+    .service-card { background: #FFF; border-radius: 8px; padding: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid var(--navy-blue); transition: transform 0.3s; }
     .service-card:hover { transform: translateY(-5px); border-top-color: var(--gold); }
-    .service-card h3 { color: var(--navy-blue); font-size: 1.2rem; margin-bottom: 12px; font-weight: 700; }
+    .service-card h3 { color: var(--navy-blue); font-size: 1.2rem; margin-bottom: 12px; font-weight: 800; }
     .service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
     /* Misión y Visión */
-    .about-section { padding: 70px 5%; background: #FFF; }
+    .about-section { padding: 75px 5%; background: #FFF; }
     .about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
     .about-box { background: var(--gray-bg); padding: 35px; border-radius: 8px; border-left: 4px solid var(--gold); }
-    .about-box h3 { color: var(--navy-blue); font-size: 1.4rem; margin-bottom: 12px; font-weight: 700; }
+    .about-box h3 { color: var(--navy-blue); font-size: 1.4rem; margin-bottom: 12px; font-weight: 800; }
     .about-box p { color: var(--text-muted); font-size: 0.95rem; }
 
     /* Catálogo PDF */
-    .catalog-section { padding: 70px 5%; max-width: 1200px; margin: 0 auto; }
+    .catalog-section { padding: 75px 5%; max-width: 1200px; margin: 0 auto; }
     .catalog-header { text-align: center; margin-bottom: 30px; }
-    .btn-download { display: inline-block; background: var(--navy-blue); color: #FFF; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; margin-top: 15px; transition: background 0.3s; }
+    .btn-download { display: inline-block; background: var(--navy-blue); color: #FFF; padding: 13px 26px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; margin-top: 15px; transition: background 0.3s; }
     .btn-download:hover { background: var(--gold); color: #000; }
     .iframe-box { background: #FFF; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #E5E7EB; margin-top: 20px; }
 
     /* RSE */
-    .rse-section { padding: 70px 5%; background: var(--navy-dark); color: #FFF; }
+    .rse-section { padding: 75px 5%; background: var(--navy-dark); color: #FFF; }
     .rse-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 40px auto 0 auto; }
     .rse-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 8px; }
-    .rse-card span { color: var(--gold); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .rse-card span { color: var(--gold); font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
     .rse-card h3 { font-size: 1.2rem; margin: 10px 0; color: #FFF; }
     .rse-card p { color: #9CA3AF; font-size: 0.88rem; }
 
-    /* Formulario de Contacto */
-    .contact-section { padding: 70px 5%; max-width: 750px; margin: 0 auto; }
-    .contact-card { background: var(--gray-card); padding: 45px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 4px solid var(--gold); }
+    /* Formulario de Contacto y Datos Directos */
+    .contact-section { padding: 75px 5%; max-width: 800px; margin: 0 auto; }
+    .contact-card { background: var(--gray-card); padding: 45px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid var(--gold); }
     .contact-card h2 { color: var(--navy-blue); margin-bottom: 8px; font-weight: 800; }
-    .contact-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; }
+    .contact-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; }
+
+    .direct-contacts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+      padding: 18px;
+      background: var(--gray-bg);
+      border-radius: 6px;
+      border-left: 4px solid var(--navy-blue);
+    }
+    .contact-item { font-size: 0.88rem; color: var(--navy-blue); font-weight: 700; }
+    .contact-item span { display: block; color: var(--text-muted); font-weight: 500; font-size: 0.8rem; }
+    .contact-item a { color: var(--navy-blue); text-decoration: none; }
+    .contact-item a:hover { color: var(--electric-blue); text-decoration: underline; }
 
     .form-group { margin-bottom: 20px; text-align: left; }
     .form-group label { display: block; font-weight: 700; font-size: 0.85rem; color: var(--navy-blue); margin-bottom: 6px; }
@@ -142,7 +185,7 @@
     .btn-submit:hover { background: var(--gold); color: #000; }
 
     /* Footer */
-    footer { background: #050E1A; color: #9CA3AF; text-align: center; padding: 35px 5%; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    footer { background: #040F1E; color: #9CA3AF; text-align: center; padding: 38px 5%; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
     .matriz-info { font-size: 0.75rem; color: #6B7280; margin-top: 8px; }
 
     @media (max-width: 768px) {
@@ -156,7 +199,7 @@
 <body>
 
   <!-- BOTÓN FLOTANTE DE WHATSAPP MÉXICO -->
-  <a href="https://wa.me/52551018365?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20MILOR%20México" 
+  <a href="https://wa.me/525951018365?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20MILOR%20México" 
      class="whatsapp-float" 
      target="_blank" 
      rel="noopener" 
@@ -199,7 +242,7 @@
   </header>
 
   <main>
-    <!-- HERO SECTION EJECUTIVO -->
+    <!-- HERO SECTION EJECUTIVO CON DEGRADADO VIVO -->
     <section id="inicio" class="hero">
       <div class="hero-container">
         <span class="tag-national">SEDE MATRIZ • MÉXICO</span>
@@ -311,11 +354,21 @@
       </div>
     </section>
 
-    <!-- RESPONSABILIDAD SOCIAL EMPRESARIAL (RSE) -->
+    <!-- RESPONSABILIDAD SOCIAL EMPRESARIAL (RSE CON REDIRECCIÓN A PDF) -->
     <section id="rse" class="rse-section">
       <div class="section-title" style="color: #FFF;">
         <h2 style="color: #FFF;">Responsabilidad Social Empresarial</h2>
         <p style="color: #9CA3AF;">Inversión directa en el desarrollo humano, deportivo y artístico de nuestras comunidades.</p>
+        
+        <div style="margin-top: 20px;">
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-primary" 
+             style="display: inline-flex; align-items: center; gap: 8px;">
+            📄 Ver Documento Oficial de RSE (PDF)
+          </a>
+        </div>
       </div>
 
       <div class="rse-grid">
@@ -323,25 +376,42 @@
           <span>Cultura & Danza</span>
           <h3>Conde Dance Company</h3>
           <p>Programa de becas de formación en danza e intercambios culturales binacionales para jóvenes en Chicoloapan, Estado de México.</p>
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" target="_blank" rel="noopener" style="color: var(--gold); font-size: 0.82rem; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px;">Ver detalles en PDF →</a>
         </div>
+        
         <div class="rse-card">
           <span>Arte Plástico</span>
           <h3>Julián David López Trejo</h3>
           <p>Impulso al patrimonio cultural, destacando la develación del retrato de Sor Juana Inés de la Cruz en la Embajada de México en Bogotá.</p>
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" target="_blank" rel="noopener" style="color: var(--gold); font-size: 0.82rem; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px;">Ver detalles en PDF →</a>
         </div>
+
         <div class="rse-card">
           <span>Deporte de Alto Rendimiento</span>
           <h3>Ciclismo & Boxeo</h3>
           <p>Patrocinio en el Campeonato Bike Marathon Interestatal XCO y fomento del deporte juvenil como motor de transformación social.</p>
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" target="_blank" rel="noopener" style="color: var(--gold); font-size: 0.82rem; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px;">Ver detalles en PDF →</a>
         </div>
       </div>
     </section>
 
-    <!-- FORMULARIO DE CONTACTO MATRIZ MÉXICO -->
+    <!-- FORMULARIO DE CONTACTO Y DATOS OFICIALES DE MÉXICO -->
     <section id="contacto" class="contact-section">
       <div class="contact-card">
         <h2>Contacto Comercial Sede Matriz</h2>
         <p>Envíe sus consultas comerciales, requerimientos de licitación u obras a MILOR México.</p>
+
+        <!-- Bloque de Teléfonos Directos -->
+        <div class="direct-contacts">
+          <div class="contact-item">
+            <span>WhatsApp Directo:</span>
+            <a href="https://wa.me/525951018365" target="_blank" rel="noopener">+52 595 101 8365</a>
+          </div>
+          <div class="contact-item">
+            <span>Oficina Central / Fijo:</span>
+            <a href="tel:+525959217812">+52 595 921 7812</a>
+          </div>
+        </div>
 
         <form action="https://formsubmit.co/2021.milor@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
@@ -359,7 +429,7 @@
 
           <div class="form-group">
             <label for="telefono">Teléfono / WhatsApp</label>
-            <input type="tel" id="telefono" name="Telefono" placeholder="+52 55 0000 0000" required>
+            <input type="tel" id="telefono" name="Telefono" placeholder="+52 595 000 0000" required>
           </div>
 
           <div class="form-group">
@@ -376,7 +446,7 @@
   <!-- FOOTER INSTITUCIONAL -->
   <footer>
     <p><strong>MILOR S.A. de C.V.</strong> &copy; 2026 — Comercializadora & Constructora. Todos los derechos reservados.</p>
-    <p class="matriz-info">Casa Matriz: Chicoloapan, Estado de México. Operaciones transnacionales con Filial Colombia.</p>
+    <p class="matriz-info">Casa Matriz: Chicoloapan, Estado de México. Tel: +52 595 921 7812 | WhatsApp: +52 595 101 8365.</p>
   </footer>
 
 </body>
