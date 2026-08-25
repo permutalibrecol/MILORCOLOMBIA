@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://permutalibrecol.github.io',
-  base: '/MILORCOLOMBIA',
+  base: '/MILORCOLOMBIA/',
   integrations: [tailwind()],
 });
