@@ -3,122 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MILOR Comercializadora | Material Eléctrico e Infraestructura</title>
+  <title>MILOR Comercializadora | Material Eléctrico e Infraestructura de Alta Tensión</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
-      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] }
+        }
+      }
     }
   </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
+<body class="bg-[#030712] text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950 min-h-screen flex flex-col justify-between">
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-blue-900/40">
+  <!-- HEADER CORPORATIVO RESPONSIVO -->
+  <header class="sticky top-0 z-50 bg-[#030712]/90 backdrop-blur-xl border-b border-slate-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">M</div>
-        <div>
-          <span class="text-xl font-black tracking-tight text-white block leading-none">MILOR</span>
-          <span class="text-[10px] text-amber-400 font-mono tracking-widest uppercase">Comercializadora</span>
-        </div>
-      </div>
       
-      <!-- Selector de Idioma y Región (4 Versiones) -->
-      <div class="flex items-center gap-4">
-        <div class="relative inline-block text-left">
-          <select onchange="location = this.value;" class="bg-slate-900 text-amber-300 border border-blue-800/60 text-xs rounded-lg px-3 py-1.5 focus:outline-none">
-            <option value="/MILORCOLOMBIA/" selected>🇨🇴 CO (Español)</option>
-            <option value="/MILORCOLOMBIA/co/en/">🇨🇴 CO (English)</option>
-            <option value="/MILORCOLOMBIA/mx/es/">🇲🇽 MX (Español)</option>
-            <option value="/MILORCOLOMBIA/mx/en/">🇲🇽 MX (English)</option>
-          </select>
+      <!-- LOGO MILOR -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition duration-300">
+          M
         </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-white block leading-none">MILOR</span>
+          <span class="text-[9px] text-amber-400 font-mono tracking-widest uppercase">Comercializadora</span>
+        </div>
+      </a>
+      
+      <!-- NAV DESKTOP -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-slate-300">
+        <a href="#inicio" class="hover:text-amber-400 transition">Inicio</a>
+        <a href="#nosotros" class="hover:text-amber-400 transition">Nosotros</a>
+        <a href="#catalogo" class="hover:text-amber-400 transition">Catálogo</a>
+        <a href="#rse" class="hover:text-amber-400 transition">RSE & Comunidad</a>
+      </nav>
 
-        <a href="https://wa.me/573219216097" target="_blank" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-bold text-xs tracking-wide transition shadow-md shadow-amber-500/10">
-          Cotizar Ahora
+      <!-- SELECTOR DE REGION / IDIOMA & COTIZAR -->
+      <div class="flex items-center gap-3">
+        <select onchange="location = this.value;" class="bg-slate-900 text-amber-400 border border-slate-700/80 text-xs font-medium rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-amber-500">
+          <option value="/MILORCOLOMBIA/" selected>🇨🇴 CO (Español)</option>
+          <option value="/MILORCOLOMBIA/co/en/">🇨🇴 CO (English)</option>
+          <option value="/MILORCOLOMBIA/mx/es/">🇲🇽 MX (Español)</option>
+          <option value="/MILORCOLOMBIA/mx/en/">🇲🇽 MX (English)</option>
+        </select>
+
+        <a href="https://wa.me/573219216097" target="_blank" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-wide transition shadow-lg shadow-amber-500/15">
+          Cotizar WhatsApp
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="inicio" class="relative py-24 bg-gradient-to-b from-[#0a1428] via-[#09101f] to-[#050914] overflow-hidden border-b border-blue-900/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-400/10 border border-amber-400/20 text-amber-300 uppercase tracking-widest">
-        Soluciones Eléctricas de Alta Tensión • Colombia
-      </span>
-      <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
-        Comercialización e Infraestructura Eléctrica de Alta Calidad
-      </h1>
-      <p class="text-slate-300 text-base sm:text-xl max-w-2xl mx-auto">
-        Proveedores líderes en aisladores de porcelana, brazos galvanizados y herrajes industriales para el sector eléctrico en Colombia.
-      </p>
-      <div class="pt-4">
-        <a href="#catalogo" class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm transition shadow-xl shadow-amber-500/20">
-          Ver Catálogo Técnico
-        </a>
-      </div>
-    </div>
-  </section>
+  <main>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative py-20 lg:py-32 bg-gradient-to-b from-[#0b1329] via-[#050b18] to-[#030712] overflow-hidden border-b border-slate-800/60">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-blue-600/10 blur-[140px] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          Casa Matriz México • Primera Filial Colombia
+        </div>
 
-  <!-- CATÁLOGO GOOGLE DRIVE -->
-  <section id="catalogo" class="py-24 bg-[#070d18] relative border-b border-blue-900/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-400/10 border border-amber-400/20 text-amber-300 uppercase tracking-widest">
-          Especificaciones Técnicas
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white">Catálogo General de Productos</h2>
-      </div>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+          Infraestructura y Material Eléctrico de Alta Tensión
+        </h1>
 
-      <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl p-4 sm:p-6 border border-blue-800/30 shadow-2xl space-y-4">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-blue-900/40">
-          <h3 class="text-base font-bold text-white flex items-center gap-2">📄 Visualizador PDF de Infraestructura</h3>
-          <a href="https://drive.google.com/file/d/1-8R-W7a9E5Zl4mZk3w4-5_example/view?usp=sharing" target="_blank" class="px-5 py-2.5 rounded-xl bg-blue-900/60 hover:bg-blue-800 text-amber-300 font-semibold text-xs border border-amber-400/30">
-            Abrir en Google Drive ↗
+        <p class="text-slate-300 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+          Proveedores líderes en aisladores de porcelana, herrajes de potencia y brazos galvanizados. Soluciones con estándares de calidad internacional para el sector energético.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm tracking-wide transition shadow-xl shadow-amber-500/20">
+            Ver Catálogo Técnico
+          </a>
+          <a href="#nosotros" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold text-sm tracking-wide transition">
+            Conocer la Empresa
           </a>
         </div>
-        <div class="w-full h-[650px] rounded-xl overflow-hidden bg-slate-950 border border-blue-900/50">
-          <iframe src="https://drive.google.com/file/d/1-8R-W7a9E5Zl4mZk3w4-5_example/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+      </div>
+    </section>
+
+    <!-- IDENTIDAD CORPORATIVA: NOSOTROS / MISIÓN / VISIÓN -->
+    <section id="nosotros" class="py-20 lg:py-28 bg-[#030712] relative border-b border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        <div class="max-w-3xl space-y-4">
+          <span class="text-amber-400 text-xs font-mono tracking-widest uppercase">Estructura & Trayectoria</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white">Nuestra Identidad Corporativa</h2>
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+            MILOR Comercializadora se consolida en México como referente en la comercialización y distribución de infraestructura eléctrica industrial. En el marco de nuestra estrategia de expansión internacional, establecemos a Colombia como nuestra primera filial estratégica para atender el mercado sudamericano con excelencia y confiabilidad.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- TARJETA MISIÓN -->
+          <div class="bg-gradient-to-br from-slate-900/80 to-blue-950/30 p-8 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/40 transition">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xl">🎯</div>
+            <h3 class="text-2xl font-bold text-white">Misión</h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Garantizar el suministro oportuno y confiable de infraestructura y material eléctrico de alta y media tensión —incluyendo aisladores de porcelana, herrajes de potencia y brazos galvanizados— cumpliendo con los más estrictos estándares técnicos de calidad y seguridad para respaldar el desarrollo energético de América Latina.
+            </p>
+          </div>
+
+          <!-- TARJETA VISIÓN -->
+          <div class="bg-gradient-to-br from-slate-900/80 to-blue-950/30 p-8 rounded-2xl border border-slate-800 space-y-3 hover:border-amber-500/40 transition">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xl">👁️</div>
+            <h3 class="text-2xl font-bold text-white">Visión</h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Consolidarnos para el año 2030 como el socio estratégico transnacional líder en la comercialización y distribución de insumos eléctricos pesados en Norteamérica y la Región Andina, destacándonos por la excelencia operativa, la expansión binacional México-Colombia y el compromiso con el desarrollo social de nuestras comunidades.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- RSE -->
-  <section id="rse" class="py-24 bg-gradient-to-b from-[#050914] via-[#09101f] to-[#0a1428] text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div class="text-center max-w-3xl mx-auto space-y-4">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-400/10 border border-amber-400/20 text-amber-300 uppercase">Responsabilidad Social Empresarial</span>
-        <h2 class="text-3xl sm:text-5xl font-black">Impacto Cultural, Artístico y Deportivo</h2>
+    <!-- SECCIÓN CATÁLOGO TÉCNICO EMBED GOOGLE DRIVE -->
+    <section id="catalogo" class="py-20 lg:py-28 bg-[#050b18] relative border-b border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest">
+            Documentación Técnica Oficial
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white">Catálogo General de Productos</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Consulte directamente la ficha técnica de aisladores, herrajes y elementos de alta tensión.</p>
+        </div>
+
+        <!-- CONTENEDOR DEL VISOR PDF -->
+        <div class="bg-slate-900/90 rounded-2xl p-4 sm:p-6 border border-slate-800 shadow-2xl space-y-4">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <h3 class="text-sm sm:text-base font-bold text-slate-200 flex items-center gap-2">
+              <span>📄</span> Visor Interactivo de Infraestructura
+            </h3>
+            
+            <a href="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs tracking-wide text-center transition shadow-lg shadow-amber-500/10">
+              📥 Descargar Catálogo PDF ↗
+            </a>
+          </div>
+
+          <!-- IFRAME VISOR DE GOOGLE DRIVE -->
+          <div class="w-full h-[450px] sm:h-[600px] lg:h-[750px] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
+            <iframe 
+              src="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/preview" 
+              class="w-full h-full border-0" 
+              allow="autoplay"
+              title="Visor de Catálogo MILOR">
+            </iframe>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl border border-blue-800/30 p-7 hover:border-amber-400/40 transition">
-          <span class="px-3 py-1 rounded bg-blue-900/50 text-blue-200 text-xs font-mono">Cultura & Danza</span>
-          <h3 class="text-xl font-bold mt-3">Conde Dance Company</h3>
-          <p class="text-xs text-slate-300 mt-2">Formación de jóvenes talentos y becas con proyección e intercambio internacional.</p>
+    <!-- RESPONSABILIDAD SOCIAL EMPRESARIAL (RSE) -->
+    <section id="rse" class="py-20 lg:py-28 bg-[#030712] text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+          <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest">Compromiso Institucional</span>
+          <h2 class="text-3xl sm:text-5xl font-black">Responsabilidad Social Empresarial (RSE)</h2>
+          <p class="text-slate-400 text-base">Invertimos activamente en el desarrollo cultural, artístico y deportivo de nuestras comunidades.</p>
         </div>
-        <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl border border-blue-800/30 p-7 hover:border-amber-400/40 transition">
-          <span class="px-3 py-1 rounded bg-blue-900/50 text-blue-200 text-xs font-mono">Arte Plástico</span>
-          <h3 class="text-xl font-bold mt-3">Julián David López Trejo</h3>
-          <p class="text-xs text-slate-300 mt-2">Difusión del patrimonio cultural y exposiciones artísticas binacionales.</p>
-        </div>
-        <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl border border-blue-800/30 p-7 hover:border-amber-400/40 transition">
-          <span class="px-3 py-1 rounded bg-blue-900/50 text-blue-200 text-xs font-mono">Deporte</span>
-          <h3 class="text-xl font-bold mt-3">Ciclismo & Boxeo</h3>
-          <p class="text-xs text-slate-300 mt-2">Patrocinio a atletas en el Campeonato Bike Marathon XCO y desarrollo deportivo local.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
+            <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Cultura & Danza</span>
+            <h3 class="text-xl font-bold">Conde Dance Company</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Formación integral de jóvenes en Chicoloapan (Estado de México) mediante becas del 25% y 50% con proyección e intercambios culturales binacionales.</p>
+          </div>
+          <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
+            <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Arte Plástico</span>
+            <h3 class="text-xl font-bold">Julián David López Trejo</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Promoción del patrimonio cultural e iniciativas artísticas, destacando la develación del retrato de Sor Juana Inés de la Cruz en la Embajada de México en Bogotá.</p>
+          </div>
+          <div class="bg-slate-900/60 rounded-2xl border border-slate-800 p-8 space-y-4 hover:border-amber-500/40 transition">
+            <span class="px-3 py-1 rounded-md bg-amber-500/10 text-amber-400 text-xs font-mono">Deporte</span>
+            <h3 class="text-xl font-bold">Ciclismo & Boxeo</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Patrocinio a atletas de alto rendimiento en el Campeonato Bike Marathon Interestatal XCO y fomento del deporte juvenil como eje de disciplina social.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 border-t border-blue-900/40 py-12 text-center text-xs text-slate-500">
+  <!-- FOOTER CORPORATIVO -->
+  <footer class="bg-[#02050b] border-t border-slate-800 py-12 text-center text-xs text-slate-500 space-y-3">
+    <p class="font-semibold text-slate-400">MILOR Comercializadora S.A.S. — México (Casa Matriz) & Colombia (Filial)</p>
     <p>© 2026 MILOR Comercializadora. Todos los derechos reservados.</p>
   </footer>
 
