@@ -1,272 +1,483 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MILOR México - Soluciones Integrales</title>
-    <style>
-        :root {
-            --bg-primary: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #334155;
-            --accent: #059669;
-            --border-color: #cbd5e1;
-            --nav-bg: #ffffff;
-            --footer-bg: #0f172a;
-            --footer-text: #f8fafc;
-            --social-bg: #f1f5f9;
-            --social-hover: #e2e8f0;
-            --hero-bg: linear-gradient(135deg, #065f46 0%, #0f172a 100%);
-            --hero-text: #ffffff;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MILOR México | Casa Matriz Comercializadora & Constructora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-blue: #0F3D6C;       /* Azul Marino Vivo */
+      --navy-dark: #071D36;       /* Azul Noche Oscuro */
+      --electric-blue: #1E5FA8;   /* Azul Eléctrico */
+      --gold: #FFD700;            /* Amarillo Vivo / Oro Neón */
+      --gold-hover: #E6C200;      /* Amarillo Vivo Hover */
+      --gray-bg: #F4F6F9;
+      --gray-card: #FFFFFF;
+      --text-dark: #1F2937;
+      --text-muted: #6B7280;
+      --font-main: 'Montserrat', sans-serif;
+    }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-primary: #0f172a;
-                --bg-card: #1e293b;
-                --text-main: #f8fafc;
-                --text-muted: #e2e8f0;
-                --accent: #10b981;
-                --border-color: #334155;
-                --nav-bg: #1e293b;
-                --footer-bg: #020617;
-                --footer-text: #f8fafc;
-                --social-bg: #334155;
-                --social-hover: #475569;
-                --hero-bg: linear-gradient(135deg, #022c22 0%, #020617 100%);
-                --hero-text: #ffffff;
-            }
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
+    body { background-color: var(--gray-bg); color: var(--text-dark); line-height: 1.6; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+    /* Botón Flotante WhatsApp México */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      border-radius: 50px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .whatsapp-icon { width: 34px; height: 34px; }
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    /* Header y Navegación */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 5%;
+      background-color: var(--navy-blue);
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .logo-container { display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; }
+    .logo-title { font-size: 1.7rem; font-weight: 900; color: #FFFFFF; letter-spacing: 2.5px; }
+    .logo-subtitle { color: #FFFFFF; font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; opacity: 0.95; }
 
-        header {
-            background-color: var(--nav-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    .nav-links a { color: #FFFFFF; text-decoration: none; margin: 0 10px; font-size: 0.85rem; font-weight: 600; transition: color 0.3s; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--gold); }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .selectors { display: flex; gap: 8px; }
+    .dropbtn { background: var(--navy-dark); color: #FFF; border: 1px solid rgba(255,215,0,0.5); padding: 6px 12px; font-weight: 700; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; right: 0; background: var(--navy-dark); border-radius: 4px; min-width: 140px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); }
+    .dropdown-content a { color: #FFF; padding: 10px 14px; text-decoration: none; display: block; font-size: 0.8rem; }
+    .dropdown-content a:hover { background: var(--electric-blue); color: var(--gold); }
+    .dropdown:hover .dropdown-content { display: block; }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-main);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
+    /* Hero Section con Degradado Vivo */
+    .hero { 
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-blue) 45%, var(--electric-blue) 100%); 
+      color: #FFF; 
+      padding: 105px 5% 95px 5%; 
+      text-align: center; 
+    }
+    .tag-national { 
+      background-color: rgba(255, 215, 0, 0.18); 
+      color: var(--gold); 
+      border: 1.5px solid var(--gold); 
+      padding: 7px 18px; 
+      border-radius: 20px; 
+      font-size: 0.78rem; 
+      font-weight: 800; 
+      letter-spacing: 1.5px; 
+      display: inline-block; 
+      margin-bottom: 18px; 
+    }
+    .hero h1 { font-size: 2.9rem; font-weight: 900; margin: 15px auto; max-width: 950px; line-height: 1.25; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.15rem; color: #E5E7EB; max-width: 780px; margin: 0 auto 35px auto; font-weight: 400; }
+    
+    .cta-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .btn-primary { 
+      background: var(--gold); 
+      color: #000; 
+      padding: 15px 34px; 
+      font-weight: 800; 
+      text-decoration: none; 
+      border-radius: 4px; 
+      transition: all 0.3s ease; 
+      font-size: 0.9rem; 
+      text-transform: uppercase; 
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+    }
+    .btn-primary:hover { background: var(--gold-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,215,0,0.4); }
+    .btn-secondary { border: 2px solid #FFF; color: #FFF; padding: 13px 32px; font-weight: 700; text-decoration: none; border-radius: 4px; font-size: 0.9rem; text-transform: uppercase; transition: all 0.3s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
 
-        .logo span {
-            color: var(--accent);
-        }
+    /* Bloque de Métricas y Estadísticas (Matriz) */
+    .stats-section { background: var(--navy-dark); color: #FFF; padding: 45px 5%; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+    .stat-card h3 { font-size: 2.5rem; color: var(--gold); font-weight: 900; }
+    .stat-card p { font-size: 0.85rem; color: #9CA3AF; text-transform: uppercase; font-weight: 700; margin-top: 5px; }
 
-        .lang-switch {
-            display: flex;
-            gap: 0.5rem;
-        }
+    /* Social Bar con Íconos Ajustados */
+    .social-bar { background: var(--navy-dark); color: #9CA3AF; padding: 16px 5%; text-align: center; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); }
+    .social-buttons { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .social-buttons a { 
+      color: var(--gold); 
+      text-decoration: none; 
+      font-weight: 700; 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      transition: color 0.3s;
+    }
+    .social-buttons a svg { width: 16px; height: 16px; fill: currentColor; }
+    .social-buttons a:hover { color: #FFF; }
 
-        .lang-btn {
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
+    /* Grid de Servicios */
+    .services-section { padding: 75px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 45px; }
+    .section-title h2 { font-size: 2.3rem; color: var(--navy-blue); font-weight: 800; }
+    .section-title p { color: var(--text-muted); font-size: 1rem; margin-top: 6px; }
 
-        .lang-btn.active {
-            background: var(--accent);
-            color: #ffffff;
-            border-color: var(--accent);
-        }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .service-card { background: #FFF; border-radius: 8px; padding: 32px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 4px solid var(--navy-blue); transition: transform 0.3s; }
+    .service-card:hover { transform: translateY(-5px); border-top-color: var(--gold); }
+    .service-card h3 { color: var(--navy-blue); font-size: 1.2rem; margin-bottom: 12px; font-weight: 800; }
+    .service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
-        .hero {
-            background: var(--hero-bg);
-            color: var(--hero-text);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+    /* Misión y Visión */
+    .about-section { padding: 75px 5%; background: #FFF; }
+    .about-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+    .about-box { background: var(--gray-bg); padding: 35px; border-radius: 8px; border-left: 4px solid var(--gold); }
+    .about-box h3 { color: var(--navy-blue); font-size: 1.4rem; margin-bottom: 12px; font-weight: 800; }
+    .about-box p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    /* Catálogo PDF */
+    .catalog-section { padding: 75px 5%; max-width: 1200px; margin: 0 auto; }
+    .catalog-header { text-align: center; margin-bottom: 30px; }
+    .btn-download { display: inline-block; background: var(--navy-blue); color: #FFF; padding: 13px 26px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.9rem; margin-top: 15px; transition: background 0.3s; }
+    .btn-download:hover { background: var(--gold); color: #000; }
+    .iframe-box { background: #FFF; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #E5E7EB; margin-top: 20px; }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
+    /* RSE */
+    .rse-section { padding: 75px 5%; background: var(--navy-dark); color: #FFF; }
+    .rse-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 40px auto 0 auto; }
+    .rse-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 8px; }
+    .rse-card span { color: var(--gold); font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+    .rse-card h3 { font-size: 1.2rem; margin: 10px 0; color: #FFF; }
+    .rse-card p { color: #9CA3AF; font-size: 0.88rem; }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #e2e8f0;
-            margin-bottom: 2rem;
-        }
+    /* Formulario de Contacto y Datos Directos */
+    .contact-section { padding: 75px 5%; max-width: 800px; margin: 0 auto; }
+    .contact-card { background: var(--gray-card); padding: 45px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid var(--gold); }
+    .contact-card h2 { color: var(--navy-blue); margin-bottom: 8px; font-weight: 800; }
+    .contact-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; }
 
-        .main-container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
+    .direct-contacts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+      padding: 18px;
+      background: var(--gray-bg);
+      border-radius: 6px;
+      border-left: 4px solid var(--navy-blue);
+    }
+    .contact-item { font-size: 0.88rem; color: var(--navy-blue); font-weight: 700; }
+    .contact-item span { display: block; color: var(--text-muted); font-weight: 500; font-size: 0.8rem; }
+    .contact-item a { color: var(--navy-blue); text-decoration: none; }
+    .contact-item a:hover { color: var(--electric-blue); text-decoration: underline; }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
+    .form-group { margin-bottom: 20px; text-align: left; }
+    .form-group label { display: block; font-weight: 700; font-size: 0.85rem; color: var(--navy-blue); margin-bottom: 6px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #D1D5DB; border-radius: 4px; font-size: 0.95rem; outline: none; background: #FFF; color: var(--text-dark); }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--navy-blue); }
 
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
+    .btn-submit { width: 100%; background: var(--navy-blue); color: #FFF; padding: 16px; border: none; border-radius: 4px; font-weight: 800; font-size: 1rem; cursor: pointer; transition: background 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-submit:hover { background: var(--gold); color: #000; }
 
-        .card h2 {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            margin-bottom: 1rem;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
+    /* Footer */
+    footer { background: #040F1E; color: #9CA3AF; text-align: center; padding: 38px 5%; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .matriz-info { font-size: 0.75rem; color: #6B7280; margin-top: 8px; }
 
-        .card p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            font-weight: 500;
-            line-height: 1.7;
-        }
+    /* CONFIGURACIÓN AUTOMÁTICA PARA MODO OSCURO (DARK MODE) */
+    @media (prefers-color-scheme: dark) {
+      body { background-color: #0B132B; color: #E5E7EB; }
+      .service-card, .about-section, .contact-card, .iframe-box { background-color: #111E38; border-color: #1E293B; }
+      .service-card h3, .about-box h3, .contact-card h2, .section-title h2, .contact-item { color: #60A5FA; }
+      .service-card p, .about-box p, .contact-card p, .contact-item span { color: #9CA3AF; }
+      .about-box, .direct-contacts { background-color: #071D36; }
+      .form-group input, .form-group textarea { background-color: #0B132B; color: #FFF; border-color: #334155; }
+      .form-group label { color: #60A5FA; }
+    }
 
-        .social-section {
-            text-align: center;
-            margin-top: 4rem;
-            padding: 2.5rem;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-        }
-
-        .social-section h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-main);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            background-color: var(--social-bg);
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .social-btn:hover {
-            background-color: var(--social-hover);
-            transform: translateY(-2px);
-        }
-
-        .social-btn svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-        }
-    </style>
+    @media (max-width: 768px) {
+      .navbar { flex-direction: column; gap: 15px; }
+      .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .hero h1 { font-size: 2.1rem; }
+      .contact-card { padding: 25px; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <a href="index-mx.html" class="logo">MILOR <span>MÉXICO</span></a>
-            <div class="lang-switch">
-                <a href="index-mx.html" class="lang-btn active">ES</a>
-                <a href="index-mx-en.html" class="lang-btn">EN</a>
-            </div>
-        </div>
-    </header>
+  <!-- BOTÓN FLOTANTE DE WHATSAPP MÉXICO -->
+  <a href="https://wa.me/525951018365?text=Hola,%20quisiera%20más%20información%20sobre%20los%20servicios%20de%20MILOR%20México" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener" 
+     aria-label="Contacto por WhatsApp México">
+    <svg viewBox="0 0 32 32" class="whatsapp-icon">
+      <path fill="#FFF" d="M16 2a13 13 0 0 0-11 19.8L3 29l7.3-1.9A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.5A10.8 10.8 0 1 1 16 25.8zm5.9-8.1c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5.2-.7.4-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1a8.1 8.1 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.4.1-.6l.4-.5c.2-.2.2-.4.1-.6s-.7-1.8-1-2.4c-.3-.6-.6-.5-.8-.5h-.7c-.2 0-.7.1-1.1.5-.4.4-1.5 1.5-1.5 3.6s1.5 4.2 1.7 4.5c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 2 .3 2.7.2.8-.1 2.5-1 2.8-2 .4-.9.4-1.7.3-1.8-.1-.2-.3-.3-.6-.4z"/>
+    </svg>
+  </a>
 
-    <section class="hero">
-        <div class="hero-container">
-            <h1>Estrategia, Tecnología e Innovación</h1>
-            <p>Impulsando la transformación corporativa y el desarrollo industrial en México.</p>
+  <!-- NAVBAR INSTITUCIONAL -->
+  <header class="navbar">
+    <a href="#" class="logo-container">
+      <span class="logo-title">MILOR</span>
+      <span class="logo-subtitle">COMERCIALIZADORA Y CONSTRUCTORA</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#rse">RSE</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="selectors">
+      <div class="dropdown">
+        <button class="dropbtn">🇲🇽 MX ▾</button>
+        <div class="dropdown-content">
+          <a href="/MILORCOLOMBIA/">🇨🇴 Colombia</a>
         </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">ES ▾</button>
+        <div class="dropdown-content">
+          <a href="/MILORCOLOMBIA/mx/en/">EN (English)</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION EJECUTIVO CON DEGRADADO VIVO -->
+    <section id="inicio" class="hero">
+      <div class="hero-container">
+        <span class="tag-national">SEDE MATRIZ • MÉXICO</span>
+        <h1>Liderazgo en Comercialización, Materiales e Infraestructura</h1>
+        <p>Casa matriz del grupo MILOR. Desarrollo de proyectos de obra civil, suministro masivo de tuberías, tecnología de biopolímeros e infraestructura eléctrica pesada.</p>
+        
+        <div class="cta-actions">
+          <a href="#catalogo" class="btn-primary">Ver Catálogo Técnico</a>
+          <a href="#contacto" class="btn-secondary">Contactar Sede Matriz</a>
+        </div>
+      </div>
     </section>
 
-    <main class="main-container">
-        <div class="grid-2">
-            <div class="card">
-                <h2>Nuestra Misión</h2>
-                <p>Desarrollar y coordinar iniciativas de alto impacto estratégico mediante soluciones de ingeniería y consultoría avanzada, optimizando la cadena de valor y garantizando la resiliencia corporativa de nuestros socios en México.</p>
-            </div>
-            <div class="card">
-                <h2>Nuestra Visión</h2>
-                <p>Ser el referente principal en integración tecnológica y excelencia operativa a nivel nacional e internacional, impulsando la sostenibilidad, la innovación continua y la generación de valor de largo plazo.</p>
-            </div>
+    <!-- ESTADÍSTICAS Y MÉTRICAS DINÁMICAS MILOR MÉXICO -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>+15,000</h3>
+          <p>Postes de Alumbrado Instalados</p>
+        </div>
+        <div class="stat-card">
+          <h3>+500 km</h3>
+          <p>Redes y Conducción Ejecutadas</p>
+        </div>
+        <div class="stat-card">
+          <h3>+12 Años</h3>
+          <p>Liderazgo en Obra Civil e Insumos</p>
+        </div>
+        <div class="stat-card">
+          <h3>2 Países</h3>
+          <p>Presencia Binacional MX-CO</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE REDES SOCIALES INSTITUCIONALES CON ÍCONOS -->
+    <section class="social-bar">
+      <span>Canales Oficiales:</span>
+      <div class="social-buttons">
+        <a href="https://www.instagram.com/milor_mx/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram México (@milor_mx)
+        </a>
+        <a href="https://www.facebook.com/people/Milor-Mx/61576844482856/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.615V8z"/></svg>
+          Facebook Matriz
+        </a>
+        <a href="https://www.instagram.com/milor_co/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram Colombia (@milor_co)
+        </a>
+      </div>
+    </section>
+
+    <!-- LÍNEAS DE NEGOCIO Y SERVICIOS INTEGRALES -->
+    <section id="servicios" class="services-section">
+      <div class="section-title">
+        <h2>Soluciones Integrales en Comercialización y Construcción</h2>
+        <p>Innovación en materiales pesados, ingeniería civil y gerencia estratégica de proyectos.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>🧬 Biopolímeros & Materiales Innovadores</h3>
+          <p>Suministro de materiales de última generación, resinas avanzadas y biopolímeros estructurales para una construcción sostenible y de alta resistencia.</p>
         </div>
 
-        <div class="social-section">
-            <h3>Síguenos en nuestras redes sociales</h3>
-            <div class="social-links">
-                <a href="https://www.instagram.com/milor_mx/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    Instagram
-                </a>
-            </div>
+        <div class="service-card">
+          <h3>🚰 Tuberías & Conducción Industrial</h3>
+          <p>Comercialización e instalación de sistemas de tuberías para redes hidráulicas, sanitarias, pluviales y canalizaciones industriales de gran alcance.</p>
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 MILOR México. Todos los derechos reservados.</p>
-    </footer>
+        <div class="service-card">
+          <h3>🏗️ Gerencia de Proyectos de Construcción</h3>
+          <p>Dirección técnica, supervisión operativa y ejecución integral de proyectos de obra civil, desarrollos urbanísticos e infraestructura corporativa.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>⚡ Infraestructura & Alumbrado Público</h3>
+          <p>Montaje, elevación e izaje de postes de alumbrado, tendido de redes y suministro de aisladores de porcelana y herrajes de potencia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS / MISIÓN Y VISIÓN MATRIZ -->
+    <section id="nosotros" class="about-section">
+      <div class="about-container">
+        <div class="about-box">
+          <h3>🎯 Misión Casa Matriz</h3>
+          <p>Proveer soluciones globales de comercialización y construcción mediante tecnología en biopolímeros, redes de conducción y desarrollo de infraestructura civil, impulsando la calidad técnica y la sostenibilidad en todos nuestros frentes operativos.</p>
+        </div>
+        <div class="about-box">
+          <h3>👁️ Visión Multinacional 2030</h3>
+          <p>Consolidar a MILOR como el referente transnacional en innovación de materiales e ingeniería estratégica, expandiendo nuestro modelo operativo desde Chicoloapan, Estado de México, hacia América Latina.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISOR DE CATÁLOGO TÉCNICO -->
+    <section id="catalogo" class="catalog-section">
+      <div class="catalog-header">
+        <div class="section-title">
+          <h2>Catálogo Comercial & Constructora 2026</h2>
+          <p>Consulte nuestro portafolio técnico oficial de aisladores, herrajes y soluciones de infraestructura.</p>
+        </div>
+        <a href="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/view?usp=sharing" target="_blank" rel="noopener" class="btn-download">
+          📥 Descargar Catálogo PDF Completo
+        </a>
+      </div>
+
+      <div class="iframe-box">
+        <iframe 
+          src="https://drive.google.com/file/d/1cbvyztUjPfqpzT1CJfhwLe5qxH6lpw7P/preview" 
+          width="100%" 
+          height="700" 
+          title="Catálogo MILOR 2026">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- RESPONSABILIDAD SOCIAL EMPRESARIAL -->
+    <section id="rse" class="rse-section">
+      <div class="section-title" style="color: #FFF;">
+        <h2 style="color: #FFF;">Responsabilidad Social Empresarial</h2>
+        <p style="color: #9CA3AF;">Inversión directa en el desarrollo humano, deportivo y artístico de nuestras comunidades.</p>
+        
+        <div style="margin-top: 20px;">
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-primary" 
+             style="display: inline-flex; align-items: center; gap: 8px;">
+            📄 Ver Documento Oficial de RSE (PDF)
+          </a>
+        </div>
+      </div>
+
+      <div class="rse-grid">
+        <div class="rse-card">
+          <span>Cultura & Danza</span>
+          <h3>Conde Dance Company</h3>
+          <p>Programa de becas de formación en danza e intercambios culturales binacionales para jóvenes en Chicoloapan, Estado de México.</p>
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" target="_blank" rel="noopener" style="color: var(--gold); font-size: 0.82rem; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px;">Ver detalles en PDF →</a>
+        </div>
+        
+        <div class="rse-card">
+          <span>Arte Plástico</span>
+          <h3>Julián David López Trejo</h3>
+          <p>Impulso al patrimonio cultural, destacando la develación del retrato de Sor Juana Inés de la Cruz en la Embajada de México en Bogotá.</p>
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" target="_blank" rel="noopener" style="color: var(--gold); font-size: 0.82rem; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px;">Ver detalles en PDF →</a>
+        </div>
+
+        <div class="rse-card">
+          <span>Deporte de Alto Rendimiento</span>
+          <h3>Ciclismo & Boxeo</h3>
+          <p>Patrocinio en el Campeonato Bike Marathon Interestatal XCO y fomento del deporte juvenil como motor de transformación social.</p>
+          <a href="https://drive.google.com/file/d/1JRbtQC7NbIuRXLca-Vl6NMNo6EiQY-6v/view?usp=sharing" target="_blank" rel="noopener" style="color: var(--gold); font-size: 0.82rem; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 12px;">Ver detalles en PDF →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO Y DATOS OFICIALES DE MÉXICO -->
+    <section id="contacto" class="contact-section">
+      <div class="contact-card">
+        <h2>Contacto Comercial Sede Matriz</h2>
+        <p>Envíe sus consultas comerciales, requerimientos de licitación u obras a MILOR México.</p>
+
+        <!-- Bloque de Teléfonos Directos -->
+        <div class="direct-contacts">
+          <div class="contact-item">
+            <span>WhatsApp Directo:</span>
+            <a href="https://wa.me/525951018365" target="_blank" rel="noopener">+52 595 101 8365</a>
+          </div>
+          <div class="contact-item">
+            <span>Oficina Central / Fijo:</span>
+            <a href="tel:+525959217812">+52 595 921 7812</a>
+          </div>
+        </div>
+
+        <form action="https://formsubmit.co/2021.milor@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nueva consulta desde la web MILOR México (Matriz)">
+
+          <div class="form-group">
+            <label for="nombre">Nombre Completo / Empresa</label>
+            <input type="text" id="nombre" name="Nombre" placeholder="Ej. Constructora Mexicana S.A. de C.V." required>
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="Correo" placeholder="correo@empresa.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <input type="tel" id="telefono" name="Telefono" placeholder="+52 595 000 0000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Detalle del Requerimiento u Obra</label>
+            <textarea id="mensaje" name="Mensaje" rows="4" placeholder="Especificaciones de biopolímeros, tuberías, volúmenes o proyecto de construcción..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Enviar Requerimiento</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER INSTITUCIONAL -->
+  <footer>
+    <p><strong>MILOR S.A. de C.V.</strong> &copy; 2026 — Comercializadora & Constructora. Todos los derechos reservados.</p>
+    <p class="matriz-info">Casa Matriz: Chicoloapan, Estado de México. Tel: +52 595 921 7812 | WhatsApp: +52 595 101 8365.</p>
+  </footer>
 
 </body>
 </html>
