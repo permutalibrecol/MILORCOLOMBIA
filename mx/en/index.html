@@ -1,123 +1,272 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MILOR Comercializadora | High-Voltage Infrastructure Mexico</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MILOR Mexico - Comprehensive Solutions</title>
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #334155;
+            --accent: #059669;
+            --border-color: #cbd5e1;
+            --nav-bg: #ffffff;
+            --footer-bg: #0f172a;
+            --footer-text: #f8fafc;
+            --social-bg: #f1f5f9;
+            --social-hover: #e2e8f0;
+            --hero-bg: linear-gradient(135deg, #065f46 0%, #0f172a 100%);
+            --hero-text: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0f172a;
+                --bg-card: #1e293b;
+                --text-main: #f8fafc;
+                --text-muted: #e2e8f0;
+                --accent: #10b981;
+                --border-color: #334155;
+                --nav-bg: #1e293b;
+                --footer-bg: #020617;
+                --footer-text: #f8fafc;
+                --social-bg: #334155;
+                --social-hover: #475569;
+                --hero-bg: linear-gradient(135deg, #022c22 0%, #020617 100%);
+                --hero-text: #ffffff;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        .hero {
+            background: var(--hero-bg);
+            color: var(--hero-text);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .social-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2.5rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .social-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            background-color: var(--social-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-btn:hover {
+            background-color: var(--social-hover);
+            transform: translateY(-2px);
+        }
+
+        .social-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
+<body>
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-blue-900/40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">M</div>
-        <div>
-          <span class="text-xl font-black tracking-tight text-white block leading-none">MILOR</span>
-          <span class="text-[10px] text-amber-400 font-mono tracking-widest uppercase">Comercializadora</span>
+    <header>
+        <div class="nav-container">
+            <a href="index-mx-en.html" class="logo">MILOR <span>MEXICO</span></a>
+            <div class="lang-switch">
+                <a href="index-mx.html" class="lang-btn">ES</a>
+                <a href="index-mx-en.html" class="lang-btn active">EN</a>
+            </div>
         </div>
-      </div>
-      
-      <div class="flex items-center gap-4">
-        <select onchange="location = this.value;" class="bg-slate-900 text-amber-300 border border-blue-800/60 text-xs rounded-lg px-3 py-1.5 focus:outline-none">
-          <option value="/MILORCOLOMBIA/">🇨🇴 CO (Español)</option>
-          <option value="/MILORCOLOMBIA/co/en/">🇨🇴 CO (English)</option>
-          <option value="/MILORCOLOMBIA/mx/es/">🇲🇽 MX (Español)</option>
-          <option value="/MILORCOLOMBIA/mx/en/" selected>🇲🇽 MX (English)</option>
-        </select>
+    </header>
 
-        <a href="https://wa.me/573219216097" target="_blank" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 text-slate-950 font-bold text-xs tracking-wide transition shadow-md shadow-amber-500/10">
-          Request Quote
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="inicio" class="relative py-24 bg-gradient-to-b from-[#0a1428] via-[#09101f] to-[#050914] overflow-hidden border-b border-blue-900/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-      <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-400/10 border border-amber-400/20 text-amber-300 uppercase tracking-widest">
-        High-Voltage Electrical Solutions • Mexico
-      </span>
-      <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight max-w-4xl mx-auto">
-        High-Quality Electrical Infrastructure & Supply
-      </h1>
-      <p class="text-slate-300 text-base sm:text-xl max-w-2xl mx-auto">
-        Supplying porcelain insulators, high-voltage hardware, and galvanized arms meeting industrial standards for Mexico.
-      </p>
-      <div class="pt-4">
-        <a href="#catalogo" class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm transition shadow-xl shadow-amber-500/20">
-          View Technical Catalog
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CATALOG GOOGLE DRIVE -->
-  <section id="catalogo" class="py-24 bg-[#070d18] relative border-b border-blue-900/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-400/10 border border-amber-400/20 text-amber-300 uppercase tracking-widest">
-          Technical Specifications
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white">General Product Catalog</h2>
-      </div>
-
-      <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl p-4 sm:p-6 border border-blue-800/30 shadow-2xl space-y-4">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-blue-900/40">
-          <h3 class="text-base font-bold text-white flex items-center gap-2">📄 Infrastructure PDF Viewer</h3>
-          <a href="https://drive.google.com/file/d/1-8R-W7a9E5Zl4mZk3w4-5_example/view?usp=sharing" target="_blank" class="px-5 py-2.5 rounded-xl bg-blue-900/60 hover:bg-blue-800 text-amber-300 font-semibold text-xs border border-amber-400/30">
-            Open in Google Drive ↗
-          </a>
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Strategy, Technology & Innovation</h1>
+            <p>Driving corporate transformation and industrial development in Mexico.</p>
         </div>
-        <div class="w-full h-[650px] rounded-xl overflow-hidden bg-slate-950 border border-blue-900/50">
-          <iframe src="https://drive.google.com/file/d/1-8R-W7a9E5Zl4mZk3w4-5_example/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CSR -->
-  <section id="rse" class="py-24 bg-gradient-to-b from-[#050914] via-[#09101f] to-[#0a1428] text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div class="text-center max-w-3xl mx-auto space-y-4">
-        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-400/10 border border-amber-400/20 text-amber-300 uppercase">Corporate Social Responsibility</span>
-        <h2 class="text-3xl sm:text-5xl font-black">Cultural, Artistic & Sports Impact</h2>
-      </div>
+    <main class="main-container">
+        <div class="grid-2">
+            <div class="card">
+                <h2>Our Mission</h2>
+                <p>To develop and coordinate high-impact strategic initiatives through advanced engineering and consulting solutions, optimizing the value chain and ensuring long-term resilience for our partners in Mexico.</p>
+            </div>
+            <div class="card">
+                <h2>Our Vision</h2>
+                <p>To become the leading benchmark in technology integration and operational excellence both nationally and internationally, driving sustainability, continuous innovation, and sustainable growth.</p>
+            </div>
+        </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl border border-blue-800/30 p-7 hover:border-amber-400/40 transition">
-          <span class="px-3 py-1 rounded bg-blue-900/50 text-blue-200 text-xs font-mono">Culture & Dance</span>
-          <h3 class="text-xl font-bold mt-3">Conde Dance Company (Chicoloapan)</h3>
-          <p class="text-xs text-slate-300 mt-2">Supporting local youth talent through scholarships and international exchanges.</p>
+        <div class="social-section">
+            <h3>Follow Us on Social Media</h3>
+            <div class="social-links">
+                <a href="https://www.instagram.com/milor_mx/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                </a>
+            </div>
         </div>
-        <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl border border-blue-800/30 p-7 hover:border-amber-400/40 transition">
-          <span class="px-3 py-1 rounded bg-blue-900/50 text-blue-200 text-xs font-mono">Fine Arts</span>
-          <h3 class="text-xl font-bold mt-3">Julián David López Trejo</h3>
-          <p class="text-xs text-slate-300 mt-2">Promoting Mexican heritage and Sor Juana Inés de la Cruz portrait unveiling in Bogota.</p>
-        </div>
-        <div class="bg-gradient-to-b from-blue-950/40 to-slate-900/60 rounded-2xl border border-blue-800/30 p-7 hover:border-amber-400/40 transition">
-          <span class="px-3 py-1 rounded bg-blue-900/50 text-blue-200 text-xs font-mono">Sports</span>
-          <h3 class="text-xl font-bold mt-3">Cycling & Boxing</h3>
-          <p class="text-xs text-slate-300 mt-2">Sponsoring local athletes in the Interstate XCO Bike Marathon Championship.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 border-t border-blue-900/40 py-12 text-center text-xs text-slate-500">
-    <p>© 2026 MILOR Comercializadora. All rights reserved.</p>
-  </footer>
+    <footer>
+        <p>&copy; 2026 MILOR Mexico. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
